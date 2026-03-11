@@ -1,24 +1,33 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Facebook, Linkedin, Twitter, Instagram, Github } from 'lucide-react';
+import { Linkedin, Twitter, Instagram, Globe, Mail, Phone, MapPin } from 'lucide-react';
+import Link from 'next/link';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
-  const links = {
-    About: ['Mission', 'Team', 'History', 'Careers'],
-    Resources: ['Events', 'Publications', 'Workshops', 'Documentation'],
-    Legal: ['Privacy Policy', 'Terms of Service', 'Cookie Policy', 'Contact'],
-    Connect: ['LinkedIn', 'Twitter', 'Facebook', 'Instagram'],
-  };
+  const quickLinks = [
+    { label: 'Home', href: '#hero' },
+    { label: 'About', href: '#about' },
+    { label: 'Events', href: '#events' },
+    { label: 'Team', href: '#team' },
+    { label: 'Contact', href: '#contact' },
+  ];
+
+  const additionalLinks = [
+    { label: 'Conference Activities', href: '#' },
+    { label: 'Student Activities', href: '#' },
+    { label: 'Offices', href: '#' },
+    { label: 'Organizational Units', href: '#' },
+    { label: 'Gallery', href: '#' },
+  ];
 
   const socialLinks = [
     { icon: Linkedin, href: '#', label: 'LinkedIn' },
     { icon: Twitter, href: '#', label: 'Twitter' },
-    { icon: Facebook, href: '#', label: 'Facebook' },
     { icon: Instagram, href: '#', label: 'Instagram' },
-    { icon: Github, href: '#', label: 'GitHub' },
+    { icon: Globe, href: '#', label: 'IEEE' },
   ];
 
   const containerVariants = {
@@ -49,28 +58,28 @@ export default function Footer() {
       </div>
 
       {/* Main Footer Content */}
-      <div className="container mx-auto px-4 py-16 md:py-20 relative z-10">
+      <div className="container mx-auto px-4 py-16 md:py-20 relative z-10 w-full">
         {/* Footer Grid */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12"
+          className="grid md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 mb-12"
         >
-          {/* Brand */}
-          <motion.div variants={itemVariants} className="lg:col-span-1">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 bg-accent rounded-lg flex items-center justify-center">
+          {/* Brand & Description */}
+          <motion.div variants={itemVariants} className="lg:col-span-4">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-12 h-12 bg-accent rounded-lg flex items-center justify-center shrink-0">
                 <span className="text-secondary font-bold text-xl">IEEE</span>
               </div>
               <div>
-                <h3 className="font-bold">IEEE CASS</h3>
-                <p className="text-xs text-gray-300">Kerala Chapter</p>
+                <h3 className="font-bold text-lg leading-tight">IEEE Circuits and Systems Society</h3>
+                <p className="text-sm text-gray-300">Kerala Chapter</p>
               </div>
             </div>
-            <p className="text-sm text-gray-300 mb-4">
-              Advancing circuits and systems technology through innovation and collaboration.
+            <p className="text-sm text-gray-300 mb-8 leading-relaxed">
+              The IEEE Circuits and Systems Society (CASS) Kerala Chapter is part of the IEEE Kerala Section and promotes technological innovation and research in circuits, systems, signal processing, and emerging electronic technologies.
             </p>
             {/* Social Links */}
             <div className="flex gap-3">
@@ -79,36 +88,85 @@ export default function Footer() {
                 return (
                   <motion.a
                     key={idx}
-                    whileHover={{ scale: 1.2 }}
+                    whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     href={social.href}
-                    className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-white/10 hover:bg-accent text-white transition-colors"
+                    aria-label={social.label}
+                    className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-white/10 hover:bg-accent text-white transition-colors"
                   >
-                    <Icon size={18} />
+                    <Icon size={20} />
                   </motion.a>
                 );
               })}
             </div>
           </motion.div>
 
-          {/* Links Sections */}
-          {Object.entries(links).map(([category, items], idx) => (
-            <motion.div key={idx} variants={itemVariants}>
-              <h4 className="font-semibold mb-4 text-white">{category}</h4>
-              <ul className="space-y-2">
-                {items.map((item, itemIdx) => (
-                  <li key={itemIdx}>
-                    <a
-                      href="#"
-                      className="text-gray-300 hover:text-accent transition-colors text-sm"
-                    >
-                      {item}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
+          {/* Quick Links */}
+          <motion.div variants={itemVariants} className="lg:col-span-2">
+            <h4 className="font-semibold text-lg mb-6 text-white border-b border-white/20 pb-2 inline-block">Quick Links</h4>
+            <ul className="space-y-3">
+              {quickLinks.map((link, idx) => (
+                <li key={idx}>
+                  <Link
+                    href={link.href}
+                    className="text-gray-300 hover:text-accent transition-colors text-sm flex items-center gap-2 group"
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent/50 group-hover:bg-accent transition-colors"></span>
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          {/* Additional Links */}
+          <motion.div variants={itemVariants} className="lg:col-span-3">
+            <h4 className="font-semibold text-lg mb-6 text-white border-b border-white/20 pb-2 inline-block">Additional Links</h4>
+            <ul className="space-y-3">
+              {additionalLinks.map((link, idx) => (
+                <li key={idx}>
+                  <a
+                    href={link.href}
+                    className="text-gray-300 hover:text-accent transition-colors text-sm flex items-center gap-2 group"
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent/50 group-hover:bg-accent transition-colors"></span>
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          {/* Contact Information */}
+          <motion.div variants={itemVariants} className="lg:col-span-3">
+            <h4 className="font-semibold text-lg mb-6 text-white border-b border-white/20 pb-2 inline-block">Contact Information</h4>
+            <div className="space-y-4">
+              <div className="flex items-start gap-3 text-sm text-gray-300">
+                <Mail size={18} className="text-accent shrink-0 mt-0.5" />
+                <a href="mailto:ieeekerala@gmail.com" className="hover:text-accent transition-colors break-all">
+                  ieeekerala@gmail.com
+                </a>
+              </div>
+              <div className="flex items-start gap-3 text-sm text-gray-300">
+                <Phone size={18} className="text-accent shrink-0 mt-0.5" />
+                <a href="tel:+918848905673" className="hover:text-accent transition-colors">
+                  +91 8848905673
+                </a>
+              </div>
+              <div className="flex items-start gap-3 text-sm text-gray-300">
+                <MapPin size={18} className="text-accent shrink-0 mt-1" />
+                <address className="not-italic leading-relaxed">
+                  IEEE Kerala Section Office<br />
+                  HarmonIEEE, 1st Floor<br />
+                  Cherian’s Square, Ambujavilasam Rd<br />
+                  PB77, GPO<br />
+                  Thiruvananthapuram<br />
+                  Kerala 695001<br />
+                  India
+                </address>
+              </div>
+            </div>
+          </motion.div>
         </motion.div>
 
         {/* Divider */}
@@ -126,25 +184,18 @@ export default function Footer() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="flex flex-col md:flex-row items-center justify-between gap-4"
+          className="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left"
         >
-          <motion.p variants={itemVariants} className="text-sm text-gray-300">
-            © {currentYear} IEEE Circuits and Systems Society, Kerala Chapter. All rights reserved.
+          <motion.p variants={itemVariants} className="text-sm text-gray-400">
+            © 2026 IEEE Circuits and Systems Society – Kerala Chapter. All rights reserved.
           </motion.p>
 
           <motion.div
             variants={itemVariants}
-            className="flex items-center gap-6 text-sm text-gray-300"
+            className="flex items-center gap-6 text-sm text-gray-400"
           >
-            <a href="#" className="hover:text-accent transition-colors">
-              Privacy
-            </a>
-            <a href="#" className="hover:text-accent transition-colors">
-              Terms
-            </a>
-            <a href="#" className="hover:text-accent transition-colors">
-              Sitemap
-            </a>
+            <a href="#" className="hover:text-accent transition-colors">Privacy</a>
+            <a href="#" className="hover:text-accent transition-colors">Terms</a>
           </motion.div>
         </motion.div>
       </div>

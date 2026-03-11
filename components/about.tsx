@@ -83,13 +83,27 @@ export default function About() {
               <motion.div
                 key={idx}
                 variants={itemVariants}
-                className="p-6 rounded-xl border border-border bg-white dark:bg-secondary hover:border-primary dark:hover:border-accent transition-colors duration-300 hover:shadow-lg"
+                className="group relative p-6 rounded-xl border border-border bg-white dark:bg-secondary hover:border-primary dark:hover:border-accent transition-colors duration-300 hover:shadow-lg overflow-hidden h-[220px]"
               >
-                <div className="mb-4 inline-flex p-3 rounded-lg bg-primary/10 dark:bg-accent/10">
-                  <Icon className="text-primary dark:text-accent" size={24} />
+                {/* Top Border Badge */}
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-accent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                
+                {/* Default State (Translates up and fades on hover) */}
+                <div className="flex flex-col items-center justify-center h-full text-center transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:-translate-y-8 group-hover:opacity-0 w-full z-10 relative">
+                  <div className="mb-4 inline-flex p-3 rounded-lg bg-primary/10 dark:bg-accent/10">
+                    <Icon className="text-primary dark:text-accent" size={28} />
+                  </div>
+                  <h3 className="text-lg font-bold">{feature.title}</h3>
                 </div>
-                <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
-                <p className="text-muted-foreground text-sm">{feature.description}</p>
+
+                {/* Hover Reveal State (Slides up from the bottom) */}
+                <div className="absolute inset-0 bg-white dark:bg-secondary p-6 flex flex-col items-center justify-center text-center translate-y-full group-hover:translate-y-0 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] z-20">
+                  <div className="mb-3 inline-flex p-2 rounded-lg bg-primary/10 dark:bg-accent/10">
+                    <Icon className="text-primary dark:text-accent" size={20} />
+                  </div>
+                  <h3 className="text-base font-bold mb-2 text-primary dark:text-accent">{feature.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{feature.description}</p>
+                </div>
               </motion.div>
             );
           })}
