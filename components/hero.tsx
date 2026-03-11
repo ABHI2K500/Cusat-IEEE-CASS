@@ -25,7 +25,7 @@ export default function Hero() {
   return (
     <section
       ref={containerRef}
-      id="home"
+      id="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-white to-blue-50 dark:from-secondary dark:to-slate-900"
     >
       {/* Animated Background Elements */}

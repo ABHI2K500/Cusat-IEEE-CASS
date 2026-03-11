@@ -91,42 +91,54 @@ export default function Events() {
               key={idx}
               variants={itemVariants}
               whileHover={{ y: -5 }}
-              className="group bg-white dark:bg-secondary rounded-xl border border-border overflow-hidden hover:border-primary dark:hover:border-accent transition-all duration-300 hover:shadow-xl"
+              className="group relative bg-white dark:bg-secondary rounded-xl border border-border overflow-hidden hover:border-primary dark:hover:border-accent transition-all duration-300 hover:shadow-xl h-[300px]"
             >
-              {/* Category Badge */}
-              <div className="h-2 bg-gradient-to-r from-primary to-accent" />
+              {/* Category Badge Top Border */}
+              <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-primary to-accent z-10" />
 
-              <div className="p-6">
-                <div className="flex items-start justify-between mb-3">
-                  <span className="inline-block px-3 py-1 bg-primary/10 dark:bg-accent/10 text-primary dark:text-accent text-xs font-semibold rounded-full">
+              {/* Default State (Visible initially, fades/slides out on hover) */}
+              <div className="p-6 flex flex-col h-full transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:opacity-0 group-hover:-translate-y-8">
+                <div className="flex items-start justify-between mt-2 mb-4">
+                  <span className="inline-block px-3 py-1 bg-primary/10 dark:bg-accent/10 text-primary dark:text-accent text-xs font-bold uppercase tracking-wider rounded-full">
                     {event.category}
                   </span>
                 </div>
+                <h3 className="text-2xl font-bold mb-3">{event.title}</h3>
+                <div className="mt-auto flex items-center gap-3 text-muted-foreground font-medium text-sm">
+                  <Calendar size={18} className="text-primary dark:text-accent" />
+                  {event.date}
+                </div>
+              </div>
 
-                <h3 className="text-xl font-bold mb-3 group-hover:text-primary dark:group-hover:text-accent transition-colors">
+              {/* Hover Details Overlay (Slides up from bottom) */}
+              <div className="absolute inset-0 bg-white dark:bg-slate-900 border border-transparent group-hover:border-primary dark:group-hover:border-accent rounded-xl p-6 translate-y-full group-hover:translate-y-0 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] flex flex-col z-20">
+                <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-primary to-accent" />
+                
+                <h3 className="text-lg font-bold mb-2 text-primary dark:text-accent mt-2 line-clamp-2">
                   {event.title}
                 </h3>
+                <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
+                  {event.description}
+                </p>
 
-                <p className="text-muted-foreground mb-4 text-sm">{event.description}</p>
-
-                {/* Event Details */}
-                <div className="space-y-2 mb-4 text-sm">
-                  <div className="flex items-center gap-2 text-foreground dark:text-gray-300">
+                {/* Event Exact Details */}
+                <div className="space-y-3 mb-6 text-sm mt-auto">
+                  <div className="flex items-center gap-3 text-foreground dark:text-gray-300">
                     <Calendar size={16} className="text-primary dark:text-accent" />
                     {event.date}
                   </div>
-                  <div className="flex items-center gap-2 text-foreground dark:text-gray-300">
+                  <div className="flex items-center gap-3 text-foreground dark:text-gray-300">
                     <MapPin size={16} className="text-primary dark:text-accent" />
                     {event.location}
                   </div>
-                  <div className="flex items-center gap-2 text-foreground dark:text-gray-300">
+                  <div className="flex items-center gap-3 text-foreground dark:text-gray-300">
                     <Users size={16} className="text-primary dark:text-accent" />
-                    Expected attendees: {event.attendees}
+                    {event.attendees} Attendees
                   </div>
                 </div>
 
                 {/* Register Button */}
-                <button className="w-full mt-4 flex items-center justify-center gap-2 px-4 py-2 bg-primary/10 dark:bg-accent/10 text-primary dark:text-accent hover:bg-primary dark:hover:bg-accent hover:text-white transition-colors rounded-lg font-semibold group/btn">
+                <button className="w-full mt-auto flex items-center justify-center gap-2 px-4 py-3 bg-primary/10 dark:bg-accent/10 text-primary dark:text-accent hover:bg-primary dark:hover:bg-accent hover:text-white transition-colors rounded-lg font-semibold group/btn">
                   Register Now
                   <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
                 </button>
