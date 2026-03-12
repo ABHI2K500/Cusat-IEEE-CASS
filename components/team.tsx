@@ -12,18 +12,21 @@ export default function Team() {
       role: 'Chair',
       institution: "Associate Director and Scientist 'F' at C-DAC",
       contact: 'libin@cdac.in',
+      image: '/libin.jpg',
     },
     {
       name: 'Dr Jagdeesh Kumar P',
       role: 'Vice Chair',
       institution: 'Assistant Professor at Model Engineering College, Thrikkakara',
       contact: 'jagadeeshkumarp@mec.ac.in',
+      image: '/jagdeesh.jpg',
     },
     {
       name: 'Dr Elizabeth George',
       role: 'Secretary',
       institution: 'CHIEF RF Solution Achitect,XARK Technologies Pvt Ltd',
       contact: 'elizabeth.george@ieee.org',
+      image: '/elizabeth.jpg',
     }
   ];
 
@@ -33,12 +36,14 @@ export default function Team() {
       role: 'Student Representative',
       institution: 'Final Year student Pursuing Btech in Electronics and Communication at Cochin University of Science and Technology',
       contact: '+917736273307',
+      image: '/shan.jpg',
     },
     {
       name: 'Lakshmi Dineshkumar',
       role: 'EC Coordinator',
       institution: 'Pursuing Btech in Electronics and Communication at Mar Athanasius College of Engineering',
       contact: '+918590444031',
+      image: '/lakshmi.jpg',
     }
   ];
 
@@ -94,9 +99,17 @@ export default function Team() {
               >
                 {/* Default Visible Content */}
                 <div className="flex flex-col items-center transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:-translate-y-8 w-full z-10">
-                  {/* Avatar Placeholder */}
-                  <div className="w-28 h-28 rounded-full overflow-hidden mb-5 bg-gradient-to-br from-primary/80 to-accent/80 flex items-center justify-center text-white text-3xl font-bold shadow-inner transition-transform duration-500 group-hover:scale-95">
-                    {member.name.split(' ').slice(0, 2).map((n) => n[0].replace(/[^a-zA-Z]/g, '')).join('')}
+                  {/* Avatar Placeholder or Image */}
+                  <div className="w-28 h-28 rounded-full overflow-hidden mb-5 bg-gradient-to-br from-primary/80 to-accent/80 flex items-center justify-center text-white text-3xl font-bold shadow-inner transition-transform duration-500 group-hover:scale-95 relative">
+                    {member.image ? (
+                      <img 
+                        src={member.image} 
+                        alt={member.name} 
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      member.name.split(' ').slice(0, 2).map((n) => n[0].replace(/[^a-zA-Z]/g, '')).join('')
+                    )}
                   </div>
                   <h3 className="text-gray-900 dark:text-gray-100 font-bold text-xl mb-1">{member.name}</h3>
                   <p className="text-primary dark:text-accent font-semibold text-sm">{member.role}</p>
@@ -143,9 +156,17 @@ export default function Team() {
               >
                 {/* Default Visible Content */}
                 <div className="flex flex-col items-center transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:-translate-y-8 w-full z-10">
-                  {/* Avatar Placeholder */}
-                  <div className="w-28 h-28 rounded-full overflow-hidden mb-5 bg-gradient-to-br from-primary/80 to-accent/80 flex items-center justify-center text-white text-3xl font-bold shadow-inner transition-transform duration-500 group-hover:scale-95">
-                    {member.name.split(' ').slice(0, 2).map((n) => n[0].replace(/[^a-zA-Z]/g, '')).join('')}
+                  {/* Avatar Placeholder or Image */}
+                  <div className="w-28 h-28 rounded-full overflow-hidden mb-5 bg-gradient-to-br from-primary/80 to-accent/80 flex items-center justify-center text-white text-3xl font-bold shadow-inner transition-transform duration-500 group-hover:scale-95 relative">
+                    {member.image ? (
+                      <img 
+                        src={member.image} 
+                        alt={member.name} 
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      member.name.split(' ').slice(0, 2).map((n) => n[0].replace(/[^a-zA-Z]/g, '')).join('')
+                    )}
                   </div>
                   <h3 className="text-gray-900 dark:text-gray-100 font-bold text-xl mb-1">{member.name}</h3>
                   <p className="text-primary dark:text-accent font-semibold text-sm">{member.role}</p>
