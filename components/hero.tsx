@@ -2,6 +2,7 @@
 
 import { useScroll, useTransform, motion } from 'framer-motion';
 import { useRef } from 'react';
+import Image from 'next/image';
 
 export default function Hero() {
   const containerRef = useRef(null);
@@ -59,6 +60,19 @@ export default function Hero() {
         style={{ opacity, scale, y }}
         className="container mx-auto px-4 text-center z-10 relative"
       >
+        {/* Logo */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          className="flex justify-center mb-8"
+        >
+          <div className="relative w-64 h-20 sm:w-80 sm:h-24">
+            <Image src="/CAS-logo-Black.png" alt="CAS Logo" fill className="object-contain dark:hidden block" priority />
+            <Image src="/CAS-logo-White.png" alt="CAS Logo" fill className="object-contain hidden dark:block" priority />
+          </div>
+        </motion.div>
+
         {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

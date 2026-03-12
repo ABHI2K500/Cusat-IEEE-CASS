@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -27,13 +28,10 @@ export default function Navbar() {
           animate={{ opacity: 1 }}
           className="flex items-center gap-3"
         >
-          <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-lg">IEEE</span>
-          </div>
-          <div className="hidden sm:block">
-            <h1 className="text-lg font-bold text-primary dark:text-accent">IEEE CASS</h1>
-            <p className="text-xs text-muted-foreground">Kerala Chapter</p>
-          </div>
+          <Link href="#hero" className="relative w-44 h-14 flex items-center justify-center">
+             <Image src="/CAS-logo-Black.png" alt="IEEE CASS Logo" fill className="object-contain dark:hidden block" priority />
+             <Image src="/CAS-logo-White.png" alt="IEEE CASS Logo" fill className="object-contain hidden dark:block" priority />
+          </Link>
         </motion.div>
 
         {/* Desktop Navigation */}

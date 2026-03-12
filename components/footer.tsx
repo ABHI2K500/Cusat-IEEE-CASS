@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Linkedin, Twitter, Instagram, Globe, Mail, Phone, MapPin } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -70,12 +71,8 @@ export default function Footer() {
           {/* Brand & Description */}
           <motion.div variants={itemVariants} className="lg:col-span-4">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-accent rounded-lg flex items-center justify-center shrink-0">
-                <span className="text-secondary font-bold text-xl">IEEE</span>
-              </div>
-              <div>
-                <h3 className="font-bold text-lg leading-tight text-foreground">IEEE Circuits and Systems Society</h3>
-                <p className="text-sm text-foreground/80 dark:text-gray-300">Kerala Chapter</p>
+              <div className="relative w-48 h-16 flex items-center justify-center shrink-0">
+                <Image src="/CAS-logo-Black.png" alt="IEEE CASS Logo" fill className="object-contain" />
               </div>
             </div>
             <p className="text-sm text-foreground/70 dark:text-gray-300 mb-8 leading-relaxed">
