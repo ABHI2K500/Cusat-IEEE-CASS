@@ -72,7 +72,7 @@ export default function Footer() {
           <motion.div variants={itemVariants} className="lg:col-span-4">
             <div className="flex items-center gap-3 mb-6">
               <div className="relative w-48 h-16 flex items-center justify-center shrink-0">
-                <Image src="/CAS-logo-Black.png" alt="IEEE CASS Logo" fill className="object-contain" />
+                <Image src="/CAS-Logo-Black.png" alt="IEEE CASS Logo" fill className="object-contain" />
               </div>
             </div>
             <p className="text-sm text-foreground/70 dark:text-gray-300 mb-8 leading-relaxed">

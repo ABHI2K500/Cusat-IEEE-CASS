@@ -20,15 +20,15 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: '/CAS-logo-White.png',
+        url: '/CAS-Logo-White.png',
         media: '(prefers-color-scheme: light)',
       },
       {
-        url: '/CAS-logo-Black.png',
+        url: '/CAS-Logo-Black.png',
         media: '(prefers-color-scheme: dark)',
       },
       {
-        url: '/CAS-logo-White.png',
+        url: '/CAS-Logo-White.png',
         type: 'image/svg+xml',
       },
     ],

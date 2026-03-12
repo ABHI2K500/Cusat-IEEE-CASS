@@ -29,8 +29,8 @@ export default function Navbar() {
           className="flex items-center gap-3"
         >
           <Link href="#hero" className="relative w-44 h-14 flex items-center justify-center">
-             <Image src="/CAS-logo-Black.png" alt="IEEE CASS Logo" fill className="object-contain dark:hidden block" priority />
-             <Image src="/CAS-logo-White.png" alt="IEEE CASS Logo" fill className="object-contain hidden dark:block" priority />
+             <Image src="/CAS-Logo-Black.png" alt="IEEE CASS Logo" fill className="object-contain dark:hidden block" priority />
+             <Image src="/CAS-Logo-White.png" alt="IEEE CASS Logo" fill className="object-contain hidden dark:block" priority />
           </Link>
         </motion.div>
 

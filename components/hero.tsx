@@ -68,8 +68,8 @@ export default function Hero() {
           className="flex justify-center mb-8"
         >
           <div className="relative w-64 h-20 sm:w-80 sm:h-24">
-            <Image src="/CAS-logo-Black.png" alt="CAS Logo" fill className="object-contain dark:hidden block" priority />
-            <Image src="/CAS-logo-White.png" alt="CAS Logo" fill className="object-contain hidden dark:block" priority />
+            <Image src="/CAS-Logo-Black.png" alt="CAS Logo" fill className="object-contain dark:hidden block" priority />
+            <Image src="/CAS-Logo-White.png" alt="CAS Logo" fill className="object-contain hidden dark:block" priority />
           </div>
         </motion.div>
 
