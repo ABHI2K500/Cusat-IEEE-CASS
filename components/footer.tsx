@@ -51,14 +51,14 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-secondary dark:bg-primary/20 text-white dark:text-gray-200 relative">
+    <footer className="bg-green-200 dark:bg-primary/20 text-foreground dark:text-gray-200 relative border-t-[6px] border-primary">
       {/* Gradient Background */}
       <div className="absolute inset-0 opacity-50">
         <div className="absolute top-0 right-0 w-96 h-96 bg-accent/10 rounded-full filter blur-3xl" />
       </div>
 
       {/* Main Footer Content */}
-      <div className="container mx-auto px-4 py-16 md:py-20 relative z-10 w-full">
+      <div className="container mx-auto px-4 py-16 md:py-20 relative z-10 w-full text-foreground">
         {/* Footer Grid */}
         <motion.div
           variants={containerVariants}
@@ -74,11 +74,11 @@ export default function Footer() {
                 <span className="text-secondary font-bold text-xl">IEEE</span>
               </div>
               <div>
-                <h3 className="font-bold text-lg leading-tight">IEEE Circuits and Systems Society</h3>
-                <p className="text-sm text-gray-300">Kerala Chapter</p>
+                <h3 className="font-bold text-lg leading-tight text-foreground">IEEE Circuits and Systems Society</h3>
+                <p className="text-sm text-foreground/80 dark:text-gray-300">Kerala Chapter</p>
               </div>
             </div>
-            <p className="text-sm text-gray-300 mb-8 leading-relaxed">
+            <p className="text-sm text-foreground/70 dark:text-gray-300 mb-8 leading-relaxed">
               The IEEE Circuits and Systems Society (CASS) Kerala Chapter is part of the IEEE Kerala Section and promotes technological innovation and research in circuits, systems, signal processing, and emerging electronic technologies.
             </p>
             {/* Social Links */}
@@ -92,7 +92,7 @@ export default function Footer() {
                     whileTap={{ scale: 0.9 }}
                     href={social.href}
                     aria-label={social.label}
-                    className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-white/10 hover:bg-accent text-white transition-colors"
+                    className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-black/5 hover:bg-accent text-foreground hover:text-white transition-colors"
                   >
                     <Icon size={20} />
                   </motion.a>
@@ -103,13 +103,13 @@ export default function Footer() {
 
           {/* Quick Links */}
           <motion.div variants={itemVariants} className="lg:col-span-2">
-            <h4 className="font-semibold text-lg mb-6 text-white border-b border-white/20 pb-2 inline-block">Quick Links</h4>
+            <h4 className="font-semibold text-lg mb-6 text-foreground border-b border-black/10 dark:border-white/20 pb-2 inline-block">Quick Links</h4>
             <ul className="space-y-3">
               {quickLinks.map((link, idx) => (
                 <li key={idx}>
                   <Link
                     href={link.href}
-                    className="text-gray-300 hover:text-accent transition-colors text-sm flex items-center gap-2 group"
+                    className="text-foreground/70 dark:text-gray-300 hover:text-accent transition-colors text-sm flex items-center gap-2 group"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-accent/50 group-hover:bg-accent transition-colors"></span>
                     {link.label}
@@ -121,13 +121,13 @@ export default function Footer() {
 
           {/* Additional Links */}
           <motion.div variants={itemVariants} className="lg:col-span-3">
-            <h4 className="font-semibold text-lg mb-6 text-white border-b border-white/20 pb-2 inline-block">Additional Links</h4>
+            <h4 className="font-semibold text-lg mb-6 text-foreground border-b border-black/10 dark:border-white/20 pb-2 inline-block">Additional Links</h4>
             <ul className="space-y-3">
               {additionalLinks.map((link, idx) => (
                 <li key={idx}>
                   <a
                     href={link.href}
-                    className="text-gray-300 hover:text-accent transition-colors text-sm flex items-center gap-2 group"
+                    className="text-foreground/70 dark:text-gray-300 hover:text-accent transition-colors text-sm flex items-center gap-2 group"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-accent/50 group-hover:bg-accent transition-colors"></span>
                     {link.label}
@@ -139,21 +139,21 @@ export default function Footer() {
 
           {/* Contact Information */}
           <motion.div variants={itemVariants} className="lg:col-span-3">
-            <h4 className="font-semibold text-lg mb-6 text-white border-b border-white/20 pb-2 inline-block">Contact Information</h4>
+            <h4 className="font-semibold text-lg mb-6 text-foreground border-b border-black/10 dark:border-white/20 pb-2 inline-block">Contact Information</h4>
             <div className="space-y-4">
-              <div className="flex items-start gap-3 text-sm text-gray-300">
+              <div className="flex items-start gap-3 text-sm text-foreground/70 dark:text-gray-300">
                 <Mail size={18} className="text-accent shrink-0 mt-0.5" />
                 <a href="mailto:ieeekerala@gmail.com" className="hover:text-accent transition-colors break-all">
                   ieeekerala@gmail.com
                 </a>
               </div>
-              <div className="flex items-start gap-3 text-sm text-gray-300">
+              <div className="flex items-start gap-3 text-sm text-foreground/70 dark:text-gray-300">
                 <Phone size={18} className="text-accent shrink-0 mt-0.5" />
                 <a href="tel:+918848905673" className="hover:text-accent transition-colors">
                   +91 8848905673
                 </a>
               </div>
-              <div className="flex items-start gap-3 text-sm text-gray-300">
+              <div className="flex items-start gap-3 text-sm text-foreground/70 dark:text-gray-300">
                 <MapPin size={18} className="text-accent shrink-0 mt-1" />
                 <address className="not-italic leading-relaxed">
                   IEEE Kerala Section Office<br />
@@ -175,7 +175,7 @@ export default function Footer() {
           whileInView={{ scaleX: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="h-px bg-gradient-to-r from-transparent via-white/20 to-transparent mb-8 origin-left"
+          className="h-px bg-gradient-to-r from-transparent via-black/40 dark:via-white/40 to-transparent mb-8 origin-left"
         />
 
         {/* Bottom Section */}
@@ -186,13 +186,13 @@ export default function Footer() {
           viewport={{ once: true }}
           className="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left"
         >
-          <motion.p variants={itemVariants} className="text-sm text-gray-400">
+          <motion.p variants={itemVariants} className="text-sm text-foreground/60 dark:text-gray-400">
             © 2026 IEEE Circuits and Systems Society – Kerala Chapter. All rights reserved.
           </motion.p>
 
           <motion.div
             variants={itemVariants}
-            className="flex items-center gap-6 text-sm text-gray-400"
+            className="flex items-center gap-6 text-sm text-foreground/60 dark:text-gray-400"
           >
             <a href="#" className="hover:text-accent transition-colors">Privacy</a>
             <a href="#" className="hover:text-accent transition-colors">Terms</a>

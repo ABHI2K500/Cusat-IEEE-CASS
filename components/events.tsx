@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Calendar, MapPin, Users, ArrowRight } from 'lucide-react';
+import Image from 'next/image';
 
 export default function Events() {
   const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: true });
@@ -15,6 +16,7 @@ export default function Events() {
       attendees: 150,
       category: 'Workshop',
       description: 'Learn advanced techniques in circuit design with industry experts.',
+      image: 'https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&fit=crop&w=800&q=80',
     },
     {
       title: 'IEEE CASS Annual Conference 2024',
@@ -23,6 +25,7 @@ export default function Events() {
       attendees: 500,
       category: 'Conference',
       description: 'Join leading researchers and professionals for three days of technical talks.',
+      image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80',
     },
     {
       title: 'Embedded Systems Seminar',
@@ -31,6 +34,7 @@ export default function Events() {
       attendees: 200,
       category: 'Seminar',
       description: 'Explore the latest trends in embedded systems and IoT applications.',
+      image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80',
     },
     {
       title: 'Networking & Career Fair',
@@ -39,6 +43,7 @@ export default function Events() {
       attendees: 300,
       category: 'Networking',
       description: 'Connect with industry professionals and explore career opportunities.',
+      image: 'https://images.unsplash.com/photo-1515169067868-5387ec356754?auto=format&fit=crop&w=800&q=80',
     },
   ];
 
@@ -91,19 +96,31 @@ export default function Events() {
               key={idx}
               variants={itemVariants}
               whileHover={{ y: -5 }}
-              className="group relative bg-white dark:bg-secondary rounded-xl border border-border overflow-hidden hover:border-primary dark:hover:border-accent transition-all duration-300 hover:shadow-xl h-[300px]"
+              className="group relative bg-white dark:bg-secondary rounded-xl border border-border overflow-hidden hover:border-primary dark:hover:border-accent transition-all duration-300 hover:shadow-xl h-[400px]"
             >
-              {/* Category Badge Top Border */}
-              <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-primary to-accent z-10" />
+              {/* Image Area */}
+              <div className="relative w-full h-48 overflow-hidden">
+                <Image
+                  src={event.image}
+                  alt={event.title}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                />
 
-              {/* Default State (Visible initially, fades/slides out on hover) */}
-              <div className="p-6 flex flex-col h-full transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:opacity-0 group-hover:-translate-y-8">
-                <div className="flex items-start justify-between mt-2 mb-4">
-                  <span className="inline-block px-3 py-1 bg-primary/10 dark:bg-accent/10 text-primary dark:text-accent text-xs font-bold uppercase tracking-wider rounded-full">
+                {/* Category Badge Top Border */}
+                <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-primary to-accent z-10" />
+
+                {/* Category Badge floating on image */}
+                <div className="absolute top-4 right-4 z-20">
+                  <span className="inline-block px-3 py-1 bg-black/60 backdrop-blur-md text-white border border-white/20 text-xs font-bold uppercase tracking-wider rounded-full shadow-sm">
                     {event.category}
                   </span>
                 </div>
-                <h3 className="text-2xl font-bold mb-3">{event.title}</h3>
+              </div>
+
+              {/* Default State (Visible initially, fades out and slides up on hover) */}
+              <div className="p-6 flex flex-col h-[calc(100%-12rem)] bg-white dark:bg-secondary relative z-10 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:opacity-0 group-hover:-translate-y-8">
+                <h3 className="text-xl font-bold mb-3 text-foreground line-clamp-2">{event.title}</h3>
                 <div className="mt-auto flex items-center gap-3 text-muted-foreground font-medium text-sm">
                   <Calendar size={18} className="text-primary dark:text-accent" />
                   {event.date}
@@ -113,7 +130,7 @@ export default function Events() {
               {/* Hover Details Overlay (Slides up from bottom) */}
               <div className="absolute inset-0 bg-white dark:bg-black border border-transparent group-hover:border-primary dark:group-hover:border-accent rounded-xl p-6 translate-y-full group-hover:translate-y-0 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] flex flex-col z-20">
                 <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-primary to-accent" />
-                
+
                 <h3 className="text-lg font-bold mb-2 text-primary dark:text-accent mt-2 line-clamp-2">
                   {event.title}
                 </h3>
