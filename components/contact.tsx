@@ -85,7 +85,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-32 bg-blue-50 dark:bg-slate-900" ref={ref}>
+    <section id="contact" className="py-20 md:py-32 bg-green-50 dark:bg-black" ref={ref}>
       <div className="container mx-auto px-4">
         {/* Section Title */}
         <motion.div
@@ -116,7 +116,7 @@ export default function Contact() {
                 <motion.div key={idx} variants={itemVariants}>
                   <a
                     href={info.link}
-                    className="flex items-start gap-4 p-4 rounded-lg border border-border hover:border-primary dark:hover:border-accent bg-white dark:bg-secondary hover:bg-blue-50 dark:hover:bg-primary/10 transition-all duration-300"
+                    className="flex items-start gap-4 p-4 rounded-lg border border-border hover:border-primary dark:hover:border-accent bg-white dark:bg-secondary hover:bg-green-50 dark:hover:bg-primary/10 transition-all duration-300"
                   >
                     <div className="p-3 rounded-lg bg-primary/10 dark:bg-accent/10 flex-shrink-0">
                       <Icon className="text-primary dark:text-accent" size={24} />

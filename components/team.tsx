@@ -90,7 +90,7 @@ export default function Team() {
               <motion.div
                 key={idx}
                 variants={itemVariants}
-                className="group relative bg-white dark:bg-slate-900 rounded-2xl border border-gray-100 dark:border-gray-800 p-8 flex flex-col items-center text-center shadow-[0_4px_24px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.1)] transition-all duration-500 overflow-hidden h-[320px]"
+                className="group relative bg-white dark:bg-black rounded-2xl border border-gray-100 dark:border-gray-800 p-8 flex flex-col items-center text-center shadow-[0_4px_24px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.1)] transition-all duration-500 overflow-hidden h-[320px]"
               >
                 {/* Default Visible Content */}
                 <div className="flex flex-col items-center transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:-translate-y-8 w-full z-10">
@@ -103,7 +103,7 @@ export default function Team() {
                 </div>
 
                 {/* Hover Details overlay sliding up from the bottom */}
-                <div className="absolute bottom-0 left-0 w-full p-6 pt-16 bg-gradient-to-t from-white via-white to-white/90 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900/90 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] flex flex-col items-center z-20">
+                <div className="absolute bottom-0 left-0 w-full p-6 pt-16 bg-gradient-to-t from-white via-white to-white/90 dark:from-black dark:via-black dark:to-black/90 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] flex flex-col items-center z-20">
                   <p className="text-gray-600 dark:text-gray-400 text-sm px-2 mb-4 leading-relaxed line-clamp-3">{member.institution}</p>
                   <div className="w-12 h-[2px] bg-primary/20 dark:bg-accent/20 mb-4 rounded-full"></div>
                   <p className="text-gray-900 dark:text-gray-100 text-xs font-bold tracking-wide">
@@ -139,7 +139,7 @@ export default function Team() {
               <motion.div
                 key={idx}
                 variants={itemVariants}
-                className="group relative bg-white dark:bg-slate-900 rounded-2xl border border-gray-100 dark:border-gray-800 p-8 flex flex-col items-center text-center shadow-[0_4px_24px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.1)] transition-all duration-500 overflow-hidden h-[320px]"
+                className="group relative bg-white dark:bg-black rounded-2xl border border-gray-100 dark:border-gray-800 p-8 flex flex-col items-center text-center shadow-[0_4px_24px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.1)] transition-all duration-500 overflow-hidden h-[320px]"
               >
                 {/* Default Visible Content */}
                 <div className="flex flex-col items-center transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:-translate-y-8 w-full z-10">
@@ -152,7 +152,7 @@ export default function Team() {
                 </div>
 
                 {/* Hover Details overlay sliding up from the bottom */}
-                <div className="absolute bottom-0 left-0 w-full p-6 pt-16 bg-gradient-to-t from-white via-white to-white/90 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900/90 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] flex flex-col items-center z-20">
+                <div className="absolute bottom-0 left-0 w-full p-6 pt-16 bg-gradient-to-t from-white via-white to-white/90 dark:from-black dark:via-black dark:to-black/90 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] flex flex-col items-center z-20">
                   <p className="text-gray-600 dark:text-gray-400 text-sm px-2 mb-4 leading-relaxed line-clamp-3">{member.institution}</p>
                   <div className="w-12 h-[2px] bg-primary/20 dark:bg-accent/20 mb-4 rounded-full"></div>
                   <p className="text-gray-900 dark:text-gray-100 text-xs font-bold tracking-wide">

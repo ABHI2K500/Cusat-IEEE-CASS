@@ -26,7 +26,7 @@ export default function Hero() {
     <section
       ref={containerRef}
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-white to-blue-50 dark:from-secondary dark:to-slate-900"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-white to-green-50 dark:from-secondary dark:to-black"
     >
       {/* Animated Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
@@ -106,12 +106,18 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <button className="px-8 py-3 bg-primary hover:bg-primary/90 text-white rounded-lg font-semibold transition-colors duration-300">
+          <a
+            href="#events"
+            className="px-8 py-3 bg-primary hover:bg-primary/90 text-white rounded-lg font-semibold transition-colors duration-300"
+          >
             Explore Events
-          </button>
-          <button className="px-8 py-3 border-2 border-primary text-primary hover:bg-primary/5 dark:border-accent dark:text-accent dark:hover:bg-accent/10 rounded-lg font-semibold transition-colors duration-300">
+          </a>
+          <a
+            href="#about"
+            className="px-8 py-3 border-2 border-primary text-primary hover:bg-primary/5 dark:border-accent dark:text-accent dark:hover:bg-accent/10 rounded-lg font-semibold transition-colors duration-300"
+          >
             Learn More
-          </button>
+          </a>
         </motion.div>
       </motion.div>
 

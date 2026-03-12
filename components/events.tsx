@@ -63,7 +63,7 @@ export default function Events() {
   };
 
   return (
-    <section id="events" className="py-20 md:py-32 bg-blue-50 dark:bg-slate-900" ref={ref}>
+    <section id="events" className="py-20 md:py-32 bg-green-50 dark:bg-black" ref={ref}>
       <div className="container mx-auto px-4">
         {/* Section Title */}
         <motion.div
@@ -111,7 +111,7 @@ export default function Events() {
               </div>
 
               {/* Hover Details Overlay (Slides up from bottom) */}
-              <div className="absolute inset-0 bg-white dark:bg-slate-900 border border-transparent group-hover:border-primary dark:group-hover:border-accent rounded-xl p-6 translate-y-full group-hover:translate-y-0 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] flex flex-col z-20">
+              <div className="absolute inset-0 bg-white dark:bg-black border border-transparent group-hover:border-primary dark:group-hover:border-accent rounded-xl p-6 translate-y-full group-hover:translate-y-0 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] flex flex-col z-20">
                 <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-primary to-accent" />
                 
                 <h3 className="text-lg font-bold mb-2 text-primary dark:text-accent mt-2 line-clamp-2">
